@@ -1,0 +1,99 @@
+<!-- app/templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraz Price Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Daraz Price Tracker</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Categories</a>
+        <a href="#">About</a>
+        <!-- Add more navigation links as needed -->
+    </nav>
+
+    <main>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <strong>{{ product['name'] }}</strong><br>
+                    Price: ${{ product['price'] }}
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <script>
+        // Example of adding interactivity with JavaScript
+        document.addEventListener('DOMContentLoaded', function () {
+            const listItems = document.querySelectorAll('li');
+
+            listItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    alert(`You clicked on ${item.querySelector('strong').textContent}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
